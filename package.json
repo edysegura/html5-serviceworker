@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "http-server ./src -c-1 -o"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
+}
