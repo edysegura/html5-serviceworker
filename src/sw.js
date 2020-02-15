@@ -1,4 +1,4 @@
-const cacheName = 'picture-chage'
+const cacheName = 'picture-cache'
 
 async function precache() {
   const cache = await caches.open(cacheName)
