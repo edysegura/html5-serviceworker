@@ -7,10 +7,10 @@ class Index {
   }
 
   registerServiceWorker() {
-    console.log('Registring Service Worker...')
+    console.log('[Service Worker] Registring...')
 
-    const success = () => console.log('Service registration successful')
-    const failure = () => console.log('Service registration failed')
+    const success = () => console.log('[Service Worker] registration successful')
+    const failure = () => console.log('[Service Worker] registration failed')
 
     navigator.serviceWorker
       .register('./sw.js')
