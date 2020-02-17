@@ -3,7 +3,20 @@
 class Index {
 
   constructor() {
+    this.bindButtonAction()
     this.registerServiceWorker()
+  }
+
+  fetchImage() {
+    const imageNumber = document.getElementById('image-id').value
+    console.log('Image number: ' + imageNumber)
+  }
+
+  bindButtonAction() {
+    const button = document.querySelector('button')
+    button.addEventListener('click', () => {
+      this.fetchImage()
+    })
   }
 
   registerServiceWorker() {
