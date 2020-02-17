@@ -1,12 +1,14 @@
 const cacheName = 'picture-cache'
 
+const preCachedAssets = [
+  './',
+  './index.html',
+  './index.js'
+]
+
 async function precache() {
   const cache = await caches.open(cacheName)
-  return cache.addAll([
-    './',
-    './index.html',
-    './index.js'
-  ])
+  return cache.addAll(preCachedAssets)
 }
 
 self.addEventListener('install', (event) => {
