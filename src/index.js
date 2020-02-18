@@ -8,8 +8,10 @@ class Index {
   }
 
   fetchImage() {
+    const image = document.querySelector('img')
     const imageNumber = document.getElementById('image-id').value
     console.log('Image number: ' + imageNumber)
+    image.src = `https://picsum.photos/id/${imageNumber}/500/500`
   }
 
   bindButtonAction() {
