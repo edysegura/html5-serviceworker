@@ -3,21 +3,26 @@
 class Index {
 
   constructor() {
-    this.bindButtonAction()
+    this.bindFormAction()
     this.registerServiceWorker()
   }
 
-  fetchImage() {
-    const image = document.querySelector('img')
-    const imageNumber = document.getElementById('image-id').value
+  fetchImage(imageNumber) {
     console.log('Image number: ' + imageNumber)
+    const image = document.querySelector('img')
     image.src = `https://picsum.photos/id/${imageNumber}/500/500`
   }
 
-  bindButtonAction() {
-    const button = document.querySelector('button')
-    button.addEventListener('click', () => {
-      this.fetchImage()
+  bindFormAction() {
+    const form = document.querySelector('form')
+    const input = form['image-id']
+
+    input.select()
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+      this.fetchImage(input.value)
+      input.select()
     })
   }
 
