@@ -17,6 +17,18 @@ self.addEventListener('install', (event) => {
   )
 })
 
+async function fetchFromCache(request) {
+  const cache = await cache.open(cacheName)
+  const cachedResponse = await cache.match(request)
+
+  if (cachedResponse) {
+    console.log('[Service Worke] fetched from cache...')
+    return cachedResponse
+  }
+
+  return addRequestToCache(request)
+}
+
 async function addRequestToCache(request) {
   console.log('[Service Worke] saving to cache...')
 
