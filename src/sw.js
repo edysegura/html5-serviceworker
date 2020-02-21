@@ -16,3 +16,14 @@ self.addEventListener('install', (event) => {
     precache().then(() => self.skipWaiting())
   )
 })
+
+async function addRequestToCache(request) {
+  console.log('[Service Worke] saving to cache...')
+
+  const cache = await cache.open(cacheName)
+  const clonedRequest = request.clone()
+  const response = fetch(clonedRequest)
+  cache.put(request, response.clone())
+
+  return response
+}
