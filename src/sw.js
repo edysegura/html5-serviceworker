@@ -22,7 +22,7 @@ async function fetchFromCache(request) {
   const cachedResponse = await cache.match(request)
 
   if (cachedResponse) {
-    console.log('[Service Worke] fetched from cache...')
+    console.log('[Service Worker] fetched from cache...')
     return cachedResponse
   }
 
@@ -30,7 +30,7 @@ async function fetchFromCache(request) {
 }
 
 async function addRequestToCache(request) {
-  console.log('[Service Worke] saving to cache...')
+  console.log('[Service Worker] saving to cache...')
 
   const cache = await cache.open(cacheName)
   const clonedRequest = request.clone()
