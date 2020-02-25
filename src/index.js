@@ -27,7 +27,7 @@ class Index {
   }
 
   registerServiceWorker() {
-    console.log('[Service Worker] Registring...')
+    console.log('[Service Worker] registring sw.js ...')
 
     const success = () => console.log('[Service Worker] registration successful')
     const failure = () => console.log('[Service Worker] registration failed')
