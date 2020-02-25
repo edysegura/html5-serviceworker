@@ -17,6 +17,11 @@ self.addEventListener('install', (event) => {
   )
 })
 
+self.addEventListener('fetch', (event) => {
+  console.log('[Service Worker] checking cached assets...')
+  event.respondWith(fetchFromCache(event.request))
+})
+
 async function fetchFromCache(request) {
   const cache = await cache.open(cacheName)
   const cachedResponse = await cache.match(request)
