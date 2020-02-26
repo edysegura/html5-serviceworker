@@ -1,4 +1,4 @@
-const cacheName = 'picture-cache-v1'
+const cacheName = 'picture-cache-v0'
 
 const preCachedAssets = [
   './',
