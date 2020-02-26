@@ -44,7 +44,7 @@ async function addRequestToCache(request) {
 
   const cache = await caches.open(cacheName)
   const clonedRequest = request.clone()
-  const response = fetch(clonedRequest)
+  const response = await fetch(clonedRequest)
   cache.put(request, response.clone())
 
   return response
