@@ -15,7 +15,7 @@ class Index {
 
   bindFormAction() {
     const form = document.querySelector('form')
-    const input = form['image-id']
+    const input = form.imageId
 
     input.select()
 
