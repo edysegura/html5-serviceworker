@@ -12,14 +12,12 @@ async function precache() {
 }
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    precache().then(() => self.skipWaiting())
-  )
+  event.waitUntil(precache())
 })
 
 self.addEventListener('activate', (event) => {
   console.log('[Service Worker] Activating Service Worker...', event)
-  return self.clients.claim()
+  event.waitUntil(self.clients.claim())
 })
 
 self.addEventListener('fetch', (event) => {
