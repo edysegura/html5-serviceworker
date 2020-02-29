@@ -18,7 +18,7 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating Service Worker ...', event)
+  console.log('[Service Worker] Activating Service Worker...', event)
   return self.clients.claim()
 })
 
