@@ -12,20 +12,22 @@ async function precache() {
 }
 
 self.addEventListener('install', (event) => {
+  console.log('[Service Worker] installing service worker...', event)
   event.waitUntil(precache())
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating Service Worker...', event)
+  console.log('[Service Worker] activating service worker...', event)
   event.waitUntil(self.clients.claim())
 })
 
 self.addEventListener('fetch', (event) => {
-  console.log('[Service Worker] checking cached assets...')
   event.respondWith(fetchFromCache(event.request))
 })
 
 async function fetchFromCache(request) {
+  console.log('[Service Worker] checking cached assets...')
+
   const cache = await caches.open(cacheName)
   const cachedResponse = await cache.match(request)
 
