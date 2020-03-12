@@ -3,8 +3,8 @@
 class Index {
 
   constructor() {
-    this.bindFormAction()
     this.registerServiceWorker()
+    this.bindFormAction()
   }
 
   fetchImage(imageNumber) {
