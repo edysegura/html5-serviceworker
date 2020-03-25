@@ -3,7 +3,8 @@ const cacheName = 'picture-cache-v0'
 const preCachedAssets = [
   './',
   './index.html',
-  './index.js'
+  './index.js',
+  './no-photo.svg'
 ]
 
 async function precache() {
