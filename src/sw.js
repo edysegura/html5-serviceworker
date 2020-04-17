@@ -19,6 +19,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   console.log('[Service Worker] activating service worker...', event)
+  // TODO remove old cache after new one is installed issue #2
   event.waitUntil(self.clients.claim())
 })
 
