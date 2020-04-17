@@ -38,10 +38,10 @@ async function fetchFromCache(request) {
     return cachedResponse
   }
 
-  return addRequestToCache(request)
+  return fetchFromNetwork(request)
 }
 
-async function addRequestToCache(request) {
+async function fetchFromNetwork(request) {
   console.log('[Service Worker] saving to cache...')
 
   const cache = await caches.open(cacheName)
