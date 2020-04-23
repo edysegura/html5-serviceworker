@@ -1,4 +1,4 @@
-const cacheName = 'picture-cache-v0'
+const cacheName = 'picture-cache-v1'
 
 const preCachedAssets = [
   './',
@@ -12,6 +12,18 @@ async function precache() {
   return cache.addAll(preCachedAssets)
 }
 
+function removeOldCache(key) {
+  if (key !== cacheName) {
+    console.log('[Service Worker] Removing old cache')
+    return caches.delete(key)
+  }
+}
+
+async function cacheCleanup() {
+  const keyList = await caches.keys()
+  return Promise.all(keyList.map(removeOldCache))
+}
+
 self.addEventListener('install', (event) => {
   console.log('[Service Worker] installing service worker...', event)
   event.waitUntil(precache())
@@ -19,8 +31,8 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   console.log('[Service Worker] activating service worker...', event)
-  // TODO remove old cache after new one is installed issue #2
-  event.waitUntil(self.clients.claim())
+  event.waitUntil(cacheCleanup())
+  return self.clients.claim()
 })
 
 self.addEventListener('fetch', (event) => {
@@ -39,6 +51,7 @@ async function fetchFromCache(request) {
   }
 
   return fetchFromNetwork(request)
+    .catch(() => console.log('Implement fallback here!'))
 }
 
 async function fetchFromNetwork(request) {
