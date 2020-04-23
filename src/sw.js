@@ -14,7 +14,7 @@ async function precache() {
 
 function removeOldCache(key) {
   if (key !== cacheName) {
-    console.log('[Service Worker] Removing old cache')
+    console.log('[Service Worker] removing old cache')
     return caches.delete(key)
   }
 }
