@@ -4,7 +4,8 @@ const preCachedAssets = [
   './',
   './index.html',
   './index.js',
-  './no-photo.svg'
+  './no-photo.svg',
+  './css/style.css',
 ]
 
 async function precache() {
@@ -27,6 +28,7 @@ async function cacheCleanup() {
 self.addEventListener('install', (event) => {
   console.log('[Service Worker] installing service worker...', event)
   event.waitUntil(precache())
+  self.skipWaiting()
 })
 
 self.addEventListener('activate', (event) => {
@@ -50,8 +52,12 @@ async function fetchFromCache(request) {
     return cachedResponse
   }
 
-  return fetchFromNetwork(request)
-    .catch(() => console.log('Implement fallback here!'))
+  try {
+    const networkResponse = await fetchFromNetwork(request)
+    return networkResponse
+  } catch (error) {
+    return cache.match('no-photo.svg')
+  }
 }
 
 async function fetchFromNetwork(request) {

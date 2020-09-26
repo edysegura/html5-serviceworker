@@ -10,7 +10,7 @@ class Index {
   fetchImage(imageNumber) {
     console.log('Image number: ' + imageNumber)
     const image = document.querySelector('img')
-    image.src = `https://picsum.photos/id/${imageNumber}/500/500`
+    image.src = `http://lorempixel.com/500/500/animals/${imageNumber}`
   }
 
   bindFormAction() {
