@@ -4,6 +4,6 @@
     "start": "http-server ./src -c-1 -p 1115 -o"
   },
   "devDependencies": {
-    "http-server": "^0.12.1"
+    "http-server": "^0.12.3"
   }
 }
