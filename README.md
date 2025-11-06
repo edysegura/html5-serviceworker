@@ -11,5 +11,6 @@ Simple examples to explain HTML5 Service Worker API.
 
 ## PWA Links
 
+- [Learn PWA](https://web.dev/learn/pwa)
 - [PWA Stats](https://www.pwastats.com/)
 - [A Big List of Progressive Web App Tips](https://deanhume.com/a-big-list-of-progressive-web-app-tips/)
