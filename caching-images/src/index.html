@@ -4,17 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML5 Service Worker API</title>
+    <!-- PicoCSS v2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <!-- Custom overrides -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
-    <section>
-      <form>
-        <input type="text" id="imageId" value="1" autocomplete="off" />
-        <button type="submit">Submit</button>
-      </form>
-      <img src="https://picsum.photos/id/2/500/500" alt="" />
-    </section>
+    <main class="container">
+      <header>
+        <h1>HTML5 Service Worker API</h1>
+        <p class="muted">
+          A small demo that caches images with a Service Worker.
+        </p>
+      </header>
+
+      <section>
+        <form id="imageForm">
+          <label for="imageId">Image ID</label>
+          <input
+            type="number"
+            id="imageId"
+            name="imageId"
+            value="1"
+            min="1"
+            autocomplete="off"
+          />
+          <button type="submit">Load image</button>
+        </form>
+
+        <figure>
+          <img
+            id="photo"
+            src="https://picsum.photos/id/2/500/500"
+            alt="Random photo from Picsum"
+          />
+          <figcaption>Image ID: <span id="currentId">2</span></figcaption>
+        </figure>
+      </section>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>

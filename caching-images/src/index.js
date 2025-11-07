@@ -8,19 +8,24 @@ class Index {
 
   fetchImage(imageNumber) {
     console.log("Image number: " + imageNumber);
-    const image = document.querySelector("img");
+    const image = document.getElementById("photo");
+    const current = document.getElementById("currentId");
     image.src = `https://picsum.photos/id/${imageNumber}/500/500`;
+    current.textContent = imageNumber;
   }
 
   bindFormAction() {
-    const form = document.querySelector("form");
-    const input = form.imageId;
+    const form = document.getElementById("imageForm");
+    const input = document.getElementById("imageId");
 
-    input.select();
+    // Friendly focus for quick changes
+    input.focus();
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      this.fetchImage(input.value);
+      const val = input.value.trim();
+      if (!val) return;
+      this.fetchImage(val);
       input.select();
     });
   }
@@ -30,9 +35,14 @@ class Index {
 
     const success = () =>
       console.log("[Service Worker] registration successful");
-    const failure = () => console.log("[Service Worker] registration failed");
+    const failure = (err) =>
+      console.log("[Service Worker] registration failed", err);
 
-    navigator.serviceWorker.register("./sw.js").then(success).catch(failure);
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").then(success).catch(failure);
+    } else {
+      console.log("[Service Worker] not supported in this browser");
+    }
   }
 }
 
