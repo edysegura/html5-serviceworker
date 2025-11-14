@@ -2,7 +2,8 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((btn) => {
   btn.addEventListener('click', async () => {
     console.log(`👁️ [app.js] ${btn.dataset.user} button clicked`);
-    console.log(await getUserProfile(btn.dataset.user));
+    const profile = await getUserProfile(btn.dataset.user);
+    showProfile(profile);
   });
 });
 
@@ -11,6 +12,11 @@ async function getUserProfile(username = 'edysegura') {
   const response = await fetch(endpoint);
   if (response.ok) return response.json();
   return null;
+}
+
+function showProfile(profile) {
+  const pre = document.querySelector('pre');
+  pre.textContent = JSON.stringify(profile, null, 2);
 }
 
 async function registerSW() {
