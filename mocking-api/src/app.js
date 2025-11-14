@@ -1,7 +1,9 @@
-const button = document.querySelector('button');
-button.addEventListener('click', async () => {
-  console.log(`👁️ [app.js] button clicked`);
-  console.log(await getUserProfile());
+const buttons = document.querySelectorAll('button');
+buttons.forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    console.log(`👁️ [app.js] ${btn.dataset.user} button clicked`);
+    console.log(await getUserProfile(btn.dataset.user));
+  });
 });
 
 async function getUserProfile(username = 'edysegura') {
