@@ -1,3 +1,5 @@
+import hljs from 'https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/+esm';
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach((btn) => {
   btn.addEventListener('click', async () => {
@@ -7,7 +9,7 @@ buttons.forEach((btn) => {
   });
 });
 
-async function getUserProfile(username = 'edysegura') {
+async function getUserProfile(username) {
   const endpoint = `https://api.github.com/users/${username}`;
   const response = await fetch(endpoint);
   if (response.ok) return response.json();
@@ -16,7 +18,11 @@ async function getUserProfile(username = 'edysegura') {
 
 function showProfile(profile) {
   const pre = document.querySelector('pre');
-  pre.textContent = JSON.stringify(profile, null, 2);
+  const code = document.createElement('code');
+  pre.innerHTML = '';
+  pre.appendChild(code);
+  code.textContent = JSON.stringify(profile, null, 2);
+  hljs.highlightElement(code);
 }
 
 async function registerSW() {
