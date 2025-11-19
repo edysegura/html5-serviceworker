@@ -19,6 +19,7 @@ async function getUserProfile(username) {
 function showProfile(profile) {
   const pre = document.querySelector('pre');
   const code = document.createElement('code');
+  code.classList.add('language-json');
   pre.innerHTML = '';
   pre.appendChild(code);
   code.textContent = JSON.stringify(profile, null, 2);
