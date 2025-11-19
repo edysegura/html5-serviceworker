@@ -13,6 +13,7 @@ async function getUserProfile(username) {
   const endpoint = `https://api.github.com/users/${username}`;
   const response = await fetch(endpoint);
   if (response.ok) return response.json();
+  if (response.status === 404) return response.json();
   return null;
 }
 
