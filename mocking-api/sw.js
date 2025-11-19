@@ -2,7 +2,7 @@ import {
   getMockUser,
   createMockResponse,
   createNotFoundResponse,
-} from './src/mockGitHub.js';
+} from './src/modules/github-mock-api.js';
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
