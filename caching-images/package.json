@@ -1,6 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "start": "npx http-server ./src -c-1 -p 1115 -o"
+    "start": "bunx http-server ./src -c-1 -p 1115 -o"
   }
 }
