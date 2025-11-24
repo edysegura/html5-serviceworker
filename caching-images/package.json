@@ -1,9 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "start": "http-server ./src -c-1 -p 1115 -o"
-  },
-  "devDependencies": {
-    "http-server": "^14.1.1"
+    "start": "npx http-server ./src -c-1 -p 1115 -o"
   }
 }
