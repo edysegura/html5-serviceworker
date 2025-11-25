@@ -79,3 +79,33 @@ export function createNotFoundResponse() {
     },
   );
 }
+
+export const isGithubUserRequest = (url) =>
+  url.hostname === 'api.github.com' && url.pathname.startsWith('/users/');
+
+export const extractUsername = (url) => {
+  const parts = url.pathname.split('/');
+  return parts[2] || null;
+};
+
+export const createResponseForUser = (username) => {
+  if (!username) {
+    console.log(
+      '❌ [github-mock-api.js] Invalid username in request, returning 404',
+    );
+    return createNotFoundResponse();
+  }
+
+  const mockUser = getMockUser(username);
+  if (mockUser) {
+    console.log(
+      `✅ [github-mock-api.js] Returning mocked data for user: ${username}`,
+    );
+    return createMockResponse(mockUser);
+  }
+
+  console.log(
+    `❌ [github-mock-api.js] No mock data for user: ${username}, returning 404`,
+  );
+  return createNotFoundResponse();
+};
