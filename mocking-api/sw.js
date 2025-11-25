@@ -18,13 +18,11 @@ self.addEventListener('fetch', (event) => {
       console.log(`✅ [sw.js] Returning mocked data for user: ${username}`);
       event.respondWith(createMockResponse(mockUser));
       return;
-    } else {
-      console.log(
-        `❌ [sw.js] No mock data for user: ${username}, returning 404`,
-      );
-      event.respondWith(createNotFoundResponse());
-      return;
     }
+
+    console.log(`❌ [sw.js] No mock data for user: ${username}, returning 404`);
+    event.respondWith(createNotFoundResponse());
+    return;
   }
 
   // For all other requests, pass through to the network
