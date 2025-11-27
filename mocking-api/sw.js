@@ -14,6 +14,5 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For all other requests, pass through to the network
   event.respondWith(fetch(event.request));
 });
