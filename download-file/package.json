@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "bunx http-server ./src -c-1 -p 1116 -o"
+  }
+}

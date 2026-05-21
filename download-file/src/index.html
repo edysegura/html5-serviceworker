@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Files with Service Worker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>Download Files with Service Worker</h1>
+        <p class="muted">
+          A demo that uses Service Worker to intercept and manage file
+          downloads.
+        </p>
+      </header>
+
+      <section>
+        <article>
+          <h2>Download Examples</h2>
+          <div class="button-group">
+            <button id="downloadText" data-type="text">
+              Download Text File
+            </button>
+            <button id="downloadJSON" data-type="json">
+              Download JSON File
+            </button>
+            <button id="downloadCSV" data-type="csv">Download CSV File</button>
+            <button id="downloadImage" data-type="image">Download Image</button>
+          </div>
+        </article>
+
+        <article>
+          <h2>Download Status</h2>
+          <div id="status" class="status-box">
+            <p>Waiting for download request...</p>
+          </div>
+        </article>
+
+        <article>
+          <h2>Download History</h2>
+          <ul id="history"></ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
