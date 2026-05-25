@@ -14,7 +14,10 @@ class FileDownloader {
       console.log('[Service Worker] registration failed', err);
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js').then(success).catch(failure);
+      navigator.serviceWorker
+        .register('./sw.js', { module: true })
+        .then(success)
+        .catch(failure);
     } else {
       console.log('[Service Worker] not supported in this browser');
     }
