@@ -10,8 +10,8 @@ class FileDownloader {
 
     const success = () =>
       console.log('[Service Worker] registration successful');
-    const failure = (err) =>
-      console.log('[Service Worker] registration failed', err);
+    const failure = (error) =>
+      console.log('[Service Worker] registration failed', error);
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
