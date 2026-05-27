@@ -33,36 +33,47 @@ export function generateFileContent(fileType) {
 
   switch (fileType) {
     case 'text':
-      return `Download Example - Text File\nGenerated: ${timestamp}\n\nThis is a sample text file downloaded through a Service Worker.`;
-
+      return generateTextContent(timestamp);
     case 'json':
-      return JSON.stringify(
-        {
-          name: 'Download Example',
-          type: 'json',
-          timestamp: timestamp,
-          message:
-            'This file was generated and downloaded through a Service Worker',
-        },
-        null,
-        2,
-      );
-
+      return generateJsonContent(timestamp);
     case 'csv':
-      return `id,name,value,timestamp\n1,Item 1,100,${timestamp}\n2,Item 2,200,${timestamp}\n3,Item 3,300,${timestamp}`;
-
+      return generateCsvContent(timestamp);
     case 'image':
-      // Generate a simple SVG image
-      return `<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-        <rect width="200" height="200" fill="#667eea"/>
-        <circle cx="100" cy="100" r="50" fill="#764ba2"/>
-        <text x="100" y="110" font-size="18" fill="white" text-anchor="middle">Service Worker</text>
-        <text x="100" y="130" font-size="12" fill="white" text-anchor="middle">Download Demo</text>
-      </svg>`;
-
+      return generateImageContent();
     default:
       return 'Unknown file type';
   }
+}
+
+function generateTextContent(timestamp) {
+  return `Download Example - Text File\nGenerated: ${timestamp}\n\nThis is a sample text file downloaded through a Service Worker.`;
+}
+
+function generateJsonContent(timestamp) {
+  return JSON.stringify(
+    {
+      name: 'Download Example',
+      type: 'json',
+      timestamp: timestamp,
+      message:
+        'This file was generated and downloaded through a Service Worker',
+    },
+    null,
+    2,
+  );
+}
+
+function generateCsvContent(timestamp) {
+  return `id,name,value,timestamp\n1,Item 1,100,${timestamp}\n2,Item 2,200,${timestamp}\n3,Item 3,300,${timestamp}`;
+}
+
+function generateImageContent() {
+  return `<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#667eea"/>
+    <circle cx="100" cy="100" r="50" fill="#764ba2"/>
+    <text x="100" y="110" font-size="18" fill="white" text-anchor="middle">Service Worker</text>
+    <text x="100" y="130" font-size="12" fill="white" text-anchor="middle">Download Demo</text>
+  </svg>`;
 }
 
 export function createBlob(content, fileType) {
