@@ -15,7 +15,7 @@ class FileDownloader {
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('./sw.js', { module: true })
+        .register('./sw.js', { type: 'module' })
         .then(success)
         .catch(failure);
     } else {
