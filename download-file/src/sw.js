@@ -16,7 +16,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   // Intercept download requests
-  if (url.pathname === '/download' || url.searchParams.has('type')) {
+  if (url.pathname === '/download' && url.searchParams.has('type')) {
     event.respondWith(handleDownload(event.request));
     return;
   }
