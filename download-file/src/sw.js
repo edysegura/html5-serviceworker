@@ -13,11 +13,14 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
+  const requestUrl = new URL(event.request.url);
 
   // Intercept download requests
-  if (url.pathname === '/download' && url.searchParams.has('type')) {
-    event.respondWith(handleDownload(event.request));
+  if (
+    requestUrl.pathname === '/download' &&
+    requestUrl.searchParams.has('type')
+  ) {
+    event.respondWith(handleDownload(requestUrl));
     return;
   }
 

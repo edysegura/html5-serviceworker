@@ -1,9 +1,9 @@
-export async function handleDownload(request) {
-  console.log('[Service Worker] handling download request:', request.url);
+export async function handleDownload(requestUrl) {
+  console.log('[Service Worker] handling download request:', requestUrl.url);
 
-  const url = new URL(request.url);
-  const fileType = url.searchParams.get('type');
-  const filename = url.searchParams.get('filename') || `download-${Date.now()}`;
+  const fileType = requestUrl.searchParams.get('type');
+  const filename =
+    requestUrl.searchParams.get('filename') || `download-${Date.now()}`;
 
   try {
     const fileContent = generateFileContent(fileType);
@@ -68,12 +68,14 @@ function generateCsvContent(timestamp) {
 }
 
 function generateImageContent() {
-  return `<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-    <rect width="200" height="200" fill="#667eea"/>
-    <circle cx="100" cy="100" r="50" fill="#764ba2"/>
-    <text x="100" y="110" font-size="18" fill="white" text-anchor="middle">Service Worker</text>
-    <text x="100" y="130" font-size="12" fill="white" text-anchor="middle">Download Demo</text>
-  </svg>`;
+  return `
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="200" height="200" fill="#667eea"/>
+      <circle cx="100" cy="100" r="50" fill="#764ba2"/>
+      <text x="100" y="110" font-size="18" fill="white" text-anchor="middle">Service Worker</text>
+      <text x="100" y="130" font-size="12" fill="white" text-anchor="middle">Download Demo</text>
+    </svg>
+  `;
 }
 
 export function createBlob(content, fileType) {
