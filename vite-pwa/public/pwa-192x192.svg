@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="Todo app icon">
+  <rect width="192" height="192" rx="44" fill="#2563eb"/>
+  <circle cx="96" cy="96" r="62" fill="#eff6ff"/>
+  <path d="M55 98.5 82 124l55-61" fill="none" stroke="#2563eb" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

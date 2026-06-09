@@ -1,0 +1,15 @@
+{
+  "name": "vite-pwa-todo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite-plugin-pwa": "^0.21.1",
+    "vite": "^6.0.0"
+  }
+}
