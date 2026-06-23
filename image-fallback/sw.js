@@ -1,6 +1,6 @@
-const cacheName = 'image-fallback-v2';
+const cacheName = 'image-fallback-v1';
 
-const preCachedAssets = ['./', './index.html', './fallback.webp'];
+const preCachedAssets = ['./fallback.webp'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
