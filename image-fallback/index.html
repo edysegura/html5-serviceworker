@@ -8,16 +8,13 @@
   <body>
     <h1>Image Fallback</h1>
     <figure>
-      <img
-        src="image.webp"
-        alt="HTML5 Logo"
-        style="width: 200px"
-        onerror="
-          this.onerror = null;
-          this.src = 'fallback.webp';
-        "
-      />
+      <img src="html5-logo.webp" alt="HTML5 Logo" style="width: 200px" />
       <figcaption>Image with fallback</figcaption>
     </figure>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js');
+      }
+    </script>
   </body>
 </html>
