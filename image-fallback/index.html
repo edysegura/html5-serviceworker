@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Fallback</title>
+  </head>
+  <body>
+    <h1>Image Fallback</h1>
+    <figure>
+      <img
+        src="image.jpg"
+        alt="Image"
+        onerror="
+          this.onerror = null;
+          this.src = 'fallback.jpg';
+        "
+      />
+      <figcaption>Image with fallback</figcaption>
+    </figure>
+  </body>
+</html>
