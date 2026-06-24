@@ -1,3 +1,66 @@
-img {
-  width: 10rem;
+:root {
+  --pico-font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  --pico-primary: #ff7043;
+  --pico-primary-hover: #ff8a65;
+  --pico-primary-focus: rgba(255, 112, 67, 0.25);
+  --pico-background-color: #121517;
+  --pico-card-background-color: #1c2125;
+  --pico-card-sectioning-background-color: #1c2125;
+  --pico-muted-border-color: #343b40;
+}
+
+body {
+  display: grid;
+  min-width: 320px;
+  min-height: 100vh;
+  place-items: center;
+  background: radial-gradient(circle at top, #2a2020, var(--pico-background-color) 55%);
+}
+
+main.container {
+  width: min(100%, 42rem);
+  padding-block: 2rem;
+}
+
+.preview-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+}
+
+.preview-card header { padding-bottom: 0; }
+
+.preview-card header p {
+  margin-bottom: 0.35rem;
+  color: var(--pico-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h1 { margin: 0; font-size: clamp(1.75rem, 5vw, 2.4rem); }
+
+figure { margin: 1.5rem 0 0; }
+
+.image-frame {
+  display: grid;
+  min-height: clamp(16rem, 40vw, 22rem);
+  place-items: center;
+  padding: 2rem;
+  background: repeating-linear-gradient(45deg, #171b1e 0 12px, #20262a 12px 24px);
+}
+
+.image-frame img {
+  display: block;
+  width: min(100%, 15rem);
+  height: auto;
+  filter: drop-shadow(0 1rem 1.1rem rgba(0, 0, 0, 0.35));
+}
+
+figcaption {
+  padding: 1.1rem 1.5rem 1.35rem;
+  color: var(--pico-muted-color);
 }

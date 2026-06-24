@@ -1,17 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Fallback</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Image Fallback</h1>
-    <figure>
-      <img src="images/html5-logo.jpg" alt="HTML5 Logo" />
-      <figcaption>Image with fallback</figcaption>
-    </figure>
+    <main class="container">
+      <article class="preview-card">
+        <header>
+          <p>Live preview</p>
+          <h1>Image fallback</h1>
+        </header>
+        <figure>
+          <div class="image-frame">
+            <img src="images/html5-logo.jpg" alt="HTML5 logo supplied by the fallback cache" />
+          </div>
+          <figcaption>
+            The service worker serves a cached fallback when this image request fails.
+          </figcaption>
+        </figure>
+      </article>
+    </main>
+
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js');
