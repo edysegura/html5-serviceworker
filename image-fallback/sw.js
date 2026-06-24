@@ -42,9 +42,6 @@ async function fetchFromCache(request) {
     ) {
       return cache.match('./images/fallback.webp');
     }
-    if (response.ok || response.type === 'opaque') {
-      cache.put(request, response.clone());
-    }
     return response;
   } catch {
     if (request.destination === 'image') {
