@@ -1,6 +1,6 @@
-const cacheName = 'image-fallback-v1';
+const cacheName = 'image-fallback-v2';
 
-const preCachedAssets = ['./fallback.webp'];
+const preCachedAssets = ['./images/fallback.webp'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -32,29 +32,24 @@ self.addEventListener('fetch', (event) => {
 async function fetchFromCache(request) {
   const cache = await caches.open(cacheName);
   const cachedResponse = await cache.match(request);
-
   if (cachedResponse) return cachedResponse;
-
   try {
     const response = await fetch(request);
-
     if (
       !response.ok &&
       response.type !== 'opaque' &&
       request.destination === 'image'
     ) {
-      return cache.match('./fallback.webp');
+      return cache.match('./images/fallback.webp');
     }
-
     if (response.ok || response.type === 'opaque') {
       cache.put(request, response.clone());
     }
     return response;
   } catch {
     if (request.destination === 'image') {
-      return cache.match('./fallback.webp');
+      return cache.match('./images/fallback.webp');
     }
-
     throw new Error(`Unable to fetch ${request.url}`);
   }
 }
