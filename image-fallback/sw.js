@@ -26,10 +26,10 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
-  event.respondWith(fetchFromCache(event.request));
+  event.respondWith(imageFallbackProxy(event.request));
 });
 
-async function fetchFromCache(request) {
+async function imageFallbackProxy(request) {
   const cache = await caches.open(cacheName);
   const cachedResponse = await cache.match(request);
   if (cachedResponse) return cachedResponse;
