@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1536" role="img" aria-label="Offline connection icon">
+  <g fill="none" stroke="#2f343c" stroke-linecap="round" stroke-width="94">
+    <path d="M286 635c66-66 145-119 232-155"/>
+    <path d="M434 785c66-54 144-91 229-107"/>
+    <path d="M584 936c58-41 127-63 198-63"/>
+    <path d="M548 456c267-107 574-43 777 160"/>
+    <path d="M700 608c156-37 329 5 451 127"/>
+    <path d="M854 759c73 8 144 41 201 98"/>
+    <path d="M288 334 1164 1210"/>
+  </g>
+  <circle cx="768" cy="1101" r="84" fill="#2f343c"/>
+</svg>
